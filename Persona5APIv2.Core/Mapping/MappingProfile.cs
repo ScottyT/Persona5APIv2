@@ -12,10 +12,10 @@ namespace Persona5APIv2.Core.Mapping
         public MappingProfile()
         {
             CreateMap<PersonaDTO, PersonaEntity>().ReverseMap();
-            CreateMap<SkillsDTO, SkillsEntity>().ReverseMap();
-            CreateMap<PersonaStatsDTO, PersonaStatsEntity>().ReverseMap();
-            CreateMap<ElementsDTO, ElementsEntity>().ReverseMap();
-            CreateMap<SkillCostDTO, SkillCostEntity>().ReverseMap();
+            //CreateMap<SkillsDTO, SkillsEntity>().ReverseMap();
+            //CreateMap<PersonaStatsDTO, PersonaStatsEntity>().ReverseMap();
+            //CreateMap<ElementsDTO, ElementsEntity>().ReverseMap();
+            //CreateMap<SkillCostDTO, SkillCostEntity>().ReverseMap();
         }
     }
 }

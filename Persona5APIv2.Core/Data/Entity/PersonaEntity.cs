@@ -10,12 +10,12 @@ namespace Persona5APIv2.Core.Data.Entity
         public string Name { get; set; }
         public int Level { get; set; }
         public string Arcana { get; set; }
-        public virtual PersonaStatsEntity Stats { get; set; }
+        //public virtual PersonaStatsEntity Stats { get; set; }
         public string Description { get; set; }
-        public string ImageFileName { get; set; }
+        //public string ImageFileName { get; set; }
 
-        public virtual SkillsEntity Skills { get; set; }
-        public virtual ElementsEntity ResistElements { get; set; }
-        public virtual ElementsEntity WeakElements { get; set; }
+        //public virtual SkillsEntity Skills { get; set; }
+        //public virtual ElementsEntity ResistElements { get; set; }
+        //public virtual ElementsEntity WeakElements { get; set; }
     }
 }

@@ -17,6 +17,7 @@ using Persona5APIv2.Core.Service;
 using Persona5APIv2.Infrastructure.Database;
 using Persona5APIv2.Infrastructure.Database.Repository;
 using Persona5APIv2.Infrastructure.Logging;
+using AutoMapper;
 
 namespace Persona5APIv2
 {
@@ -42,6 +43,7 @@ namespace Persona5APIv2
 
             // Service
             services.AddScoped<IPersonaService, PersonaService>();
+            services.AddAutoMapper();
             // Logging
             services.AddScoped(typeof(ILogger<>), typeof(NLogLogger<>));
             services.Configure<CookiePolicyOptions>(options =>

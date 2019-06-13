@@ -17,17 +17,17 @@ namespace Persona5APIv2
     {
         public static void Main(string[] args)
         {
-            var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+            //var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             IWebHost host = null;
             
             try
             {
-                logger.Debug("Starting up...");
+                //logger.Debug("Starting up...");
                 host = BuildWebHost(args);
             }
             catch(Exception ex)
             {
-                logger.Error(ex, "Program could not start due to error.");
+                //logger.Error(ex, "Program could not start due to error.");
                 throw;
             }
             using (var scope = host.Services.CreateScope())

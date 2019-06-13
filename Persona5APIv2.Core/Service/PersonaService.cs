@@ -37,7 +37,8 @@ namespace Persona5APIv2.Core.Service
                 var personas = await _repo.GetAll().Take(10).ToListAsync();
                 _logger.LogInfo("Retrieved all Persona Entities from PersonaService.");
 
-                var personasDTO = personas.Select(e => _mapper.Map<PersonaEntity, PersonaDTO>(e));
+                var personasDTO = personas.Select(e => _mapper.Map<PersonaEntity, PersonaDTO>(e)).ToList();
+                
                 return personasDTO;
             }
             catch(Exception ex)
