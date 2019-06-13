@@ -7,8 +7,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Persona5APIv2.Core.Data;
+using Persona5APIv2.Core.Data.Entity;
+using Persona5APIv2.Core.Logging;
+using Persona5APIv2.Core.Service;
+using Persona5APIv2.Infrastructure.Database;
+using Persona5APIv2.Infrastructure.Database.Repository;
+using Persona5APIv2.Infrastructure.Logging;
 
 namespace Persona5APIv2
 {
@@ -24,6 +32,18 @@ namespace Persona5APIv2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Database
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseInMemoryDatabase(databaseName: "PersonaDbV2");
+            });
+            //Repositories
+            services.AddScoped<IGenericRepository<PersonaEntity>, GenericRepository<PersonaEntity>>();
+
+            // Service
+            services.AddScoped<IPersonaService, PersonaService>();
+            // Logging
+            services.AddScoped(typeof(ILogger<>), typeof(NLogLogger<>));
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

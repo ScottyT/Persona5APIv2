@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Persona5APIv2.Core.Data.Entity
 {
-    interface IEntity
+    public interface IEntity
     {
         int Id { get; set; }
     }

@@ -16,6 +16,7 @@ namespace Persona5APIv2.Core.Data.DTO
         public PersonaStatsDTO Stats { get; set; }
         [Required, MaxLength(250)]
         public string Description { get; set; }
+        public string ImageFileName { get; set; }
         public List<int> SkillsId { get; set; }
         public List<SkillsDTO> Skills { get; set; }
 
