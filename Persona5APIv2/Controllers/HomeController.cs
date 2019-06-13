@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Persona5APIv2.Controllers
+namespace Persona5APIv2.ClientWeb.Controllers
 {
     public class HomeController : Controller
     {
