@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Persona5APIv2.Core.Service
+namespace Persona5APIv2.Core.Service.Abstraction
 {
     public interface IPersonaService
     {

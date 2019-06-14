@@ -28,16 +28,16 @@ namespace Persona5APIv2.Infrastructure.Database
                     Name = "Arsene",
                     Arcana = "Fool",
                     Level = 1,
-                    Description = "A being based off the main character of Maurice Leblanc's novels, Arsene Lupin. He appears everywhere and is a master of disguise. He is known to help law-abiding citizens."
+                    Description = "A being based off the main character of Maurice Leblanc's novels, Arsene Lupin. He appears everywhere and is a master of disguise. He is known to help law-abiding citizens.",
                     //Skills = null
-                    //Stats = new PersonaStatsEntity()
-                    //{
-                    //    Strength = 2,
-                    //    Magic = 2,
-                    //    Endurance = 2,
-                    //    Agility = 3,
-                    //    Luck = 1
-                    //},
+                    Stats = new PersonaStatsEntity()
+                    {
+                        Strength = 2,
+                        Magic = 2,
+                        Endurance = 2,
+                        Agility = 3,
+                        Luck = 1
+                    }
                     //ResistElements = null,
                     //WeakElements = null,
                     //ImageFileName = null

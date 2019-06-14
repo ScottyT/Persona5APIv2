@@ -12,8 +12,8 @@ namespace Persona5APIv2.Core.Data.DTO
         public string Name { get; set; }
         public int Level { get; set; }
         public string Arcana { get; set; }
-        //public int StatsId { get; set; }
-        //public PersonaStatsDTO Stats { get; set; }
+        public int StatsId { get; set; }
+        public PersonaStatsDTO Stats { get; set; }
         [Required, MaxLength(250)]
         public string Description { get; set; }
         //public string ImageFileName { get; set; }

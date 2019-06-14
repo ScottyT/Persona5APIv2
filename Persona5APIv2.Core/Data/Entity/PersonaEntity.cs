@@ -10,7 +10,7 @@ namespace Persona5APIv2.Core.Data.Entity
         public string Name { get; set; }
         public int Level { get; set; }
         public string Arcana { get; set; }
-        //public virtual PersonaStatsEntity Stats { get; set; }
+        public virtual PersonaStatsEntity Stats { get; set; }
         public string Description { get; set; }
         //public string ImageFileName { get; set; }
 

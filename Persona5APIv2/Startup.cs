@@ -18,6 +18,7 @@ using Persona5APIv2.Infrastructure.Database;
 using Persona5APIv2.Infrastructure.Database.Repository;
 using Persona5APIv2.Infrastructure.Logging;
 using AutoMapper;
+using Persona5APIv2.Core.Service.Abstraction;
 
 namespace Persona5APIv2
 {
@@ -40,9 +41,10 @@ namespace Persona5APIv2
             });
             //Repositories
             services.AddScoped<IGenericRepository<PersonaEntity>, GenericRepository<PersonaEntity>>();
-
+            services.AddScoped<IGenericRepository<PersonaStatsEntity>, GenericRepository<PersonaStatsEntity>>();
             // Service
             services.AddScoped<IPersonaService, PersonaService>();
+            services.AddScoped<IStatsService, StatsService>();
             services.AddAutoMapper();
             // Logging
             services.AddScoped(typeof(ILogger<>), typeof(NLogLogger<>));
@@ -66,7 +68,7 @@ namespace Persona5APIv2
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -75,12 +77,7 @@ namespace Persona5APIv2
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
         }
     }
 }

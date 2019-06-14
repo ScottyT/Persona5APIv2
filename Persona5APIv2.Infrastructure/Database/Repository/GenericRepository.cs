@@ -4,6 +4,7 @@ using Persona5APIv2.Core.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +29,19 @@ namespace Persona5APIv2.Infrastructure.Database.Repository
             throw new NotImplementedException();
         }
 
-        public IQueryable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
-            return _dbContext.Set<TEntity>().AsNoTracking();
+            return await _dbContext.Set<TEntity>().AsNoTracking().ToListAsync();
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAllIncluding(Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+            foreach(var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+            return await query.ToListAsync();
         }
 
         public TEntity GetById(int id)

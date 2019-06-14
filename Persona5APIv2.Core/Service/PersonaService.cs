@@ -11,6 +11,7 @@ using AutoMapper;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Persona5APIv2.Core.Logging;
+using Persona5APIv2.Core.Service.Abstraction;
 
 namespace Persona5APIv2.Core.Service
 {
@@ -34,7 +35,7 @@ namespace Persona5APIv2.Core.Service
         {
             try
             {
-                var personas = await _repo.GetAll().Take(10).ToListAsync();
+                var personas = await _repo.GetAll();
                 _logger.LogInfo("Retrieved all Persona Entities from PersonaService.");
 
                 var personasDTO = personas.Select(e => _mapper.Map<PersonaEntity, PersonaDTO>(e)).ToList();

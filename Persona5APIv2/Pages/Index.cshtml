@@ -1,0 +1,33 @@
+﻿@page
+@model Persona5APIv2.ClientWeb.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4 heading">
+        <span class="heading-main">Welcome</span>
+        <span class="heading-sub">Find your favorite Personas</span>
+    </h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="persona-box">
+    <div class="persona-list">
+        @foreach (var persona in Model.Personas)
+        {
+            <h2>@persona.Name</h2>
+            <ul>
+                @foreach (var stat in Model.Stats)
+                {
+                    <li>Strength - @stat.Strength</li>
+                    <li>Magic - @stat.Magic</li>
+                    <li>Endurance - @stat.Endurance</li>
+                    <li>Agility - @stat.Agility</li>
+                    <li>Luck - @stat.Luck</li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+
